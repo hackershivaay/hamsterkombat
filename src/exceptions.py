@@ -203,6 +203,14 @@ def upgrade_passive(token, _method):
         if not upg_sort:
             log(mrh + f"No upgrade available less than balance\r", flush=True)
             return
+    elif _method == '4':
+        ## sort by max 'profitPerHourDelta' for minimal 'price' 
+        upg_sort = [u for u in upgrades if u['price'] <= balance_coins and u['price'] <= max_price]
+        upg_sort = sorted(
+            [u for u in upg_sort if u['price'] <= max_price],
+            key=lambda x: 0 if x['price']<=0 else -x['profitPerHourDelta']/x['price']
+        )
+
     else:
         log(mrh + "Invalid option please try again", flush=True)
         return
