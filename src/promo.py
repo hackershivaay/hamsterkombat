@@ -49,7 +49,6 @@ def update_promo_code_in_db(db_config, promo_code, user_id):
         password=db_config['password'],
         database=db_config['database']
     )
-    print("host=", db_config['host'], "user=", db_config['user'], "password=", db_config['password'], "database=", db_config['database'])
     cursor = connection.cursor()
     update_query = """
     UPDATE records
@@ -57,7 +56,6 @@ def update_promo_code_in_db(db_config, promo_code, user_id):
     WHERE content = %s
     """
     current_date = datetime.now().strftime('%Y-%m-%d')
-    print("user_id", user_id, "->", "current_date", current_date, "->","promo_code", promo_code)
     cursor.execute(update_query, (user_id, current_date, promo_code))
     connection.commit()
     cursor.close()
