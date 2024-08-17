@@ -3,3 +3,4 @@ colorama
 fake-useragent
 lxml-html-clean
 requests-html
+mysql.connector
