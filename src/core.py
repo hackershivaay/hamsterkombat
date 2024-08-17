@@ -107,12 +107,13 @@ def run_bot(auto_upgrade, taps_on, combo_upgrade, daily_cipher_on, claim_key_on,
                                 print(mrh + f"Failed to generate fake {pth}IP/ISP {mrh}information", flush=True)
                         else:
                             print(kng + f"Faking information {mrh}not enabled{kng} for account {pth}{account}", flush=True)
-                            
-                        log_line()    
+
+                        log_line()
                         res = authenticate(token, account)
                         if res.status_code == 200:
                             user_data = res.json()
                             username = user_data.get('telegramUser', {}).get('username', 'Please set username first')
+                            user_id = user_data.get('telegramUser', {}).get('id')
                             log(bru + f"Number : {pth}{account}")
                             log(kng + f"Login as {pth}{username}")
                             clicker_config(token)
@@ -145,7 +146,7 @@ def run_bot(auto_upgrade, taps_on, combo_upgrade, daily_cipher_on, claim_key_on,
                             if auto_upgrade:
                                 upgrade_passive(token, _method)
                             if promo_on:
-                                redeem_promo(token)
+                                redeem_promo(token, user_id)
                         log_line()
                         countdown_timer(DELAY_EACH_ACCOUNT)
                     except requests.RequestException as e:
