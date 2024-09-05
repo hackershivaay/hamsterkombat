@@ -135,7 +135,7 @@ def execute(token, cek_task_dict):
                         res = _check(token, task['id'])
                         if res.status_code == 200 and res.json()['task']['isCompleted']:
                             log(f"{hju}Tasks {pth}{task['id']}\r", flush=True)
-                            log(f"{hju}Claim success get {pth}+{task['rewardCoins']} coin\r", flush=True)
+                            log(f"{hju}Succesfully Claimed this Taks Rewards\r", flush=True)
                         else:
                             log(f"{hju}Tasks {mrh}failed {pth}{task['id']}\r", flush=True)
         else:
