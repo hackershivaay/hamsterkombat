@@ -1,0 +1,10 @@
+{
+    "auto_upgrade": true,
+    "_method": "1",
+    "taps_on": true,
+    "combo_upgrade": true,
+    "daily_cipher_on": true,
+    "claim_key_on": true,
+    "tasks_on": true,
+    "promo_on": true
+}

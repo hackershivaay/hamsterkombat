@@ -1,6 +1,6 @@
 {
     "FAKE_IP/S_INFO": true,
-    
+
     "MINIMUM_TAP": 438,
     "MAXIMUM_TAP": 1200,
 
@@ -18,5 +18,12 @@
 
     "DELAY_EACH_ACCOUNT": 5,
     "MAXIMUM_PRICE": 10000000,
-    "LOOP_COUNTDOWN": 3800
+    "LOOP_COUNTDOWN": 3800,
+    "read_from_db": false,
+    "db_config":{
+        "host": "localhost",
+        "user": "root",
+        "password": "123123",
+        "database": "123123"
+    }
 }
