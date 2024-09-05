@@ -55,8 +55,6 @@ def redeem_promo(token):
                     http_error_tracker[code_type] = 0 
                 else:
                     log(kng + f"Failed to apply {pth}{promo_code}")
-                    codes.pop(0)
-                    save_promo(promo_dict)
 
             except requests.exceptions.HTTPError as e:
                 try:
@@ -77,14 +75,10 @@ def redeem_promo(token):
                     http_error_tracker[code_type] += 1
                     if http_error_tracker[code_type] >= max_http_errors:
                         log(pth + f"{code_type} {hju}Assuming maximum redemption")
-                        codes.pop(0)
-                        save_promo(promo_dict)
                         attempts_tracker[code_type] = max_attempts
 
             except Exception as err:
                 log(mrh + f"Error: {err}. Promo code: {promo_code}")
-                codes.pop(0)  
-                save_promo(promo_dict)
 
         if all(attempts >= max_attempts or not codes for attempts, codes in zip(attempts_tracker.values(), promo_dict.values())):
             break
