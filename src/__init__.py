@@ -40,17 +40,19 @@ def read_config():
         except json.JSONDecodeError as e:
             return {}
         
-def log(message, **kwargs):
+def log(message, *args, **kwargs):
     global last_log_message
     current_time = datetime.now().strftime("%Y-%m-%d %H:%M:%S")
     flush = kwargs.pop('flush', False)
     end = kwargs.pop('end', '\n')
-    if message != last_log_message:
-        print(f"{htm}[{current_time}] {message}", flush=flush, end=end)
-        last_log_message = message
+    full_message = message.format(*args)
+
+    if full_message != last_log_message:
+        print(f"[{current_time}] {full_message}", flush=flush, end=end)
+        last_log_message = full_message
 
 def log_line():
-    print(pth + "~" * 60)
+    print("~" * 60)
 
 def load_fake_file(filepath):
     with open(filepath, 'r') as file:
