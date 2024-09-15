@@ -1,7 +1,6 @@
 flask
 python-telegram-bot
 gunicorn==20.1.0
-python==3.9.5
 colorama
 fake-useragent
 lxml-html-clean
