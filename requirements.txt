@@ -3,3 +3,5 @@ colorama
 fake-useragent
 lxml-html-clean
 requests-html
+Flask==2.0.1
+gunicorn==20.1.0
