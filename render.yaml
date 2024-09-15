@@ -1,9 +1,21 @@
 services:
   - type: web
-    name: hamsterkombat
+    name: my-bot
     env:
-      - FLASK_APP=app
-      - FLASK_ENV=production
-    buildCommand: "pip install -r requirements.txt"
-    startCommand: "python main.py --setup mysetup"
-    port: 8080
+      - TELEGRAM_TOKEN: your-bot-token-here
+    build:
+      context: .
+      dockerfile: Dockerfile
+    port: 8443
+    healthcheck:
+      http:
+        path: /
+        port: 8443
+      initial_delay: 30
+      timeout: 5
+      retries: 5
+    env_vars:
+      - TELEGRAM_TOKEN
+    scaling:
+      minInstances: 1
+      maxInstances: 1
