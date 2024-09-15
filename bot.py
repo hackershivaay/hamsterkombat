@@ -4,7 +4,7 @@ import os
 TOKEN = 'YOUR_BOT_TOKEN'
 
 def start_program(update, context):
-    os.system('python your_program.py')
+    os.system('python main.py --setup mysetup')
 
 def stop_program(update, context):
     os.system('pkill your_program')
