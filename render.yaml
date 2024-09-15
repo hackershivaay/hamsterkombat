@@ -1,10 +1,20 @@
 services:  
   - type: web    
-    name: hamster-generator    
-    env: python
+    name: telegram-bot
+      TOKEN: ${TOKEN}
+    command:
+      - python
+      - bot.py
     buildCommand: "pip install -r requirements.txt"   
-    buildCommand: "pip install python-telegram-bot"   
-    startCommand: "python bot.py"  
+    buildCommand:
+      - pip install python-telegram-bot
+      startCommand: "python bot.py"  
      plan: free
     deploy:
       branch: main
+
+    env:
+      TOKEN: ${TOKEN}
+    command:
+      - python
+      - bot.py
