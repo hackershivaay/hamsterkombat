@@ -1,6 +1,7 @@
 requests
 colorama
 flask
+python-telegram-bot
 fake-useragent
 lxml-html-clean
 requests-html
