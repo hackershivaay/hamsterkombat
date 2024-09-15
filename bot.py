@@ -10,7 +10,7 @@ with socket.socket(socket.AF_INET, socket.SOCK_STREAM) as s:
     s.bind(('', PORT))
     # Rest of your application logic here
 
-TOKEN = 'YOUR_BOT_TOKEN'
+TOKEN = '7517151300:AAH5_Sz4LGsI-Wz3NS7xt-xvfb-PqKHhB8M'
 
 def start_program(update, context):
     os.system('python main.py --setup mysetup')
