@@ -1,20 +1,12 @@
-services:  
-  - type: web    
-    name: telegram-bot
-      TOKEN: ${TOKEN}
-    command:
-      - python
-      - bot.py
-    buildCommand: "pip install -r requirements.txt"   
-    buildCommand:
-      - pip install python-telegram-bot
-      startCommand: "python bot.py"  
-     plan: free
-    deploy:
-      branch: main
-
-    env:
-      TOKEN: ${TOKEN}
-    command:
-      - python
-      - bot.py
+services:
+  - type: web
+    name: my-app
+    env: python
+    buildCommand: "pip install -r requirements.txt"
+    startCommand: "python main.py --setup mysetup"
+    port: 8080
+    healthCheck:
+      url: /
+      interval: 10s
+      timeout: 5s
+      retries: 3
