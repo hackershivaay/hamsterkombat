@@ -1,11 +1,7 @@
-flask
-python-telegram-bot
-gunicorn==20.1.0
+requests
 colorama
 fake-useragent
 lxml-html-clean
 requests-html
-Flask
-requests
-numpy
-pandas
+gunicorn
+src
